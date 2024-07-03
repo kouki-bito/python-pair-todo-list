@@ -5,4 +5,4 @@ app=FastAPI()
 async def hello():
     return {"message":"hello word!"}
 
-DB_URL="mysql+pymysql://root@localhost:3306?charset=utf8"
+DB_URL="mysql+pymysql://root@localhost:3306/demo?charset=utf8"
