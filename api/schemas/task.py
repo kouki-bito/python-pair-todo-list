@@ -8,7 +8,7 @@ class TaskCreate(TaskBase):
 
 class TaskCreateResronse(TaskCreate):
     id : int
-    done: bool=Field(False,description="完了フラグ")
+    
     
     class config:
         orm_mode = True

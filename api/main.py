@@ -1,8 +1,8 @@
 from fastapi import FastAPI
+from api.routers import task, done
 
-app=FastAPI()
-@app.get("/hello")
-async def hello():
-    return {"message":"hello word!"}
+app = FastAPI()
+app.include_router(task.router)
+app.include_router(done.router)
 
 DB_URL="mysql+pymysql://root@localhost:3306/demo?charset=utf8"
