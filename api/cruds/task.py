@@ -1,8 +1,9 @@
+import api.models.task as task_model
+import api.schemas.task as task_schema
 from sqlalchemy.orm import Session
 from sqlalchemy import select
 from sqlalchemy.engine import Result
-import models.task as task_model
-import api.schemas.task as task_schema
+
 
 def create_task(db: Session,task_create:task_schema.TaskCreate):
     task=task_model.Task(**task_create.dict())
@@ -32,3 +33,8 @@ def update_task(db:Session,task_creat:task_schema.TaskCreate,original:task_model
     db.commit()
     db.refresh(original)
     return original
+
+def delete_task(db:Session,original:task_model.Task)->None:
+    db.delete(original)
+    db.commit()
+    
